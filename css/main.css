@@ -1,0 +1,532 @@
+:root {
+    --active-text-color: lightgreen;
+    --main-page-color: 15, 169, 221;
+    --alter-page-color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 992px) {
+    * {
+        font-size: 1.1rem;
+    }
+}
+
+body {
+    font-family: 'Dancing Script';
+    font-size: 1.3rem;
+    perspective: 600px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50vh repeat(7, auto);
+    grid-template-areas: "header" "feat" "about" "works" "pricing-plans" "testimonials" "information" "footer";
+    cursor: default;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Start Header Block */
+
+header {
+    background: url(../images/header.png) no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+header .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(var(--main-page-color), 0.2);
+    color: #333;
+}
+
+header .container {
+    width: 72%;
+    height: 85%;
+    margin-left: 14%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header .container *:not(h1) {
+    width: 25%;
+    margin: 0 2%;
+    padding: 1% 1%;
+    border: 3px solid #333;
+}
+
+header .container p {
+    width: 55%;
+}
+
+@media (max-width: 992px) {
+    /* Phones screens */
+    header .container {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/* End Header Block */
+
+
+/***************************************************************************/
+
+
+/* Start Features Block */
+
+#features {
+    grid-area: feat;
+    width: 100%;
+    height: 100%;
+}
+
+#features .feature {
+    width: 72%;
+    margin-left: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#features .feature h2 {
+    padding-bottom: 2%;
+}
+
+#features .feature>div {
+    width: 1fr;
+    height: 1fr;
+    margin: 3%;
+    padding: 3%;
+    border: 5px solid #eeeeee;
+    animation: fade-in 0.5s ease-in forwards;
+}
+
+#features .feature>div:hover {
+    animation: fade-out 0.5s ease-in forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        box-shadow: 5px 5px 10px rgb(var(--main-page-color));
+    }
+    50% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 5px 5px 10px rgb(var(--main-page-color)) inset;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        box-shadow: 5px 5px 10px rgb(var(--main-page-color)) inset;
+    }
+    50% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 5px 5px 10px rgb(var(--main-page-color));
+    }
+}
+
+@media (max-width: 992px) {
+    #features .feature {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* End Features Block */
+
+
+/***************************************************************************/
+
+
+/* Start About Us Block */
+
+#about-us {
+    grid-area: about;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2%;
+}
+
+#about-us p {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+
+/* End About Us Block */
+
+
+/***************************************************************************/
+
+
+/* Start Our Works Block */
+
+#our-works {
+    grid-area: works;
+    width: 72%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#our-works .gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 10vw);
+    grid-template-areas: "img1 img1 img2 img2 img3 img3 img3 img3" "img1 img1 img2 img2 img3 img3 img3 img3" "img4 img4 img4 img4 img3 img3 img3 img3" "img4 img4 img4 img4 img3 img3 img3 img3" "img4 img4 img4 img4 img3 img3 img3 img3" "img5 img5 img5 img5 img6 img6 img6 img6" "img5 img5 img5 img5 img6 img6 img6 img6";
+    grid-gap: 1%;
+}
+
+#our-works .gallery .gallery_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+}
+
+#our-works .gallery .gallery_img:hover {
+    transform-style: preserve-3d;
+    transform: scale(1.1);
+    box-shadow: 3px 3px 15px rgb(var(--main-page-color));
+    transition: all 1s ease-in-out;
+}
+
+.gallery_item_1 {
+    grid-area: img1;
+}
+
+.gallery_item_2 {
+    grid-area: img2;
+}
+
+.gallery_item_3 {
+    grid-area: img3;
+}
+
+.gallery_item_4 {
+    grid-area: img4;
+}
+
+.gallery_item_5 {
+    grid-area: img5;
+}
+
+.gallery_item_6 {
+    grid-area: img6;
+}
+
+
+/* End Our Works Block */
+
+
+/***************************************************************************/
+
+
+/* Start Pricing Plans Block */
+
+#pricing-plans {
+    grid-area: pricing-plans;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(var(--main-page-color), 0.1);
+}
+
+#pricing-plans .plans {
+    width: 72%;
+    margin: auto;
+    padding-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#pricing-plans .plans>div {
+    border: 5px solid #dddddd;
+    padding: 2% 5%;
+    height: 1fr;
+    width: 1fr;
+}
+
+#pricing-plans .plans>div *:not(:last-child) {
+    margin-bottom: 15%;
+}
+
+#pricing-plans .plans>div ul {
+    list-style: none;
+    margin-top: 20%;
+}
+
+@media (max-width: 992px) {
+    #pricing-plans .plans {
+        flex-wrap: wrap;
+    }
+    #pricing-plans .plans>div {
+        padding: 2% 15%;
+        margin-bottom: 5%;
+    }
+    #pricing-plans .plans>div ul {
+        margin-top: 15%;
+    }
+}
+
+
+/* End Pricing Plans Block */
+
+
+/***************************************************************************/
+
+
+/* Start Testimonials Block */
+
+#testimonials {
+    grid-area: testimonials;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+#testimonials .says {
+    width: 72%;
+    height: 83%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+
+#testimonials .says>div {
+    width: 48%;
+    padding: 1%;
+    margin: 1%;
+}
+
+#testimonials .says>div:hover {
+    border-radius: 20px;
+    animation: border 0.5s ease-in-out forwards;
+}
+
+@keyframes border {
+    0% {
+        border: none;
+    }
+    25% {
+        border-left: 2px solid rgb(var(--main-page-color));
+        transform: scale(1.02);
+    }
+    50% {
+        border-top: 2px solid rgb(var(--main-page-color));
+        transform: scale(1.04);
+    }
+    75% {
+        border-right: 2px solid rgb(var(--main-page-color));
+        transform: scale(1.06);
+    }
+    100% {
+        border-bottom: 2px solid rgb(var(--main-page-color));
+        transform: scale(1.08);
+    }
+}
+
+#testimonials .says>div>figure {
+    float: left;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border: 3px solid #eeeeee;
+    border-radius: 50%;
+    padding: 3%;
+}
+
+#testimonials .says>div>figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#testimonials .says>div>div>h3 {
+    margin-bottom: 2%;
+}
+
+@media (max-width: 992px) {
+    #testimonials .says>div {
+        width: 100%;
+    }
+}
+
+
+/* End Testimonials Block */
+
+
+/***************************************************************************/
+
+
+/* Start Information Block */
+
+#information {
+    grid-area: information;
+    background-color: rgba(var(--main-page-color), 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+#information .info-list {
+    list-style: none;
+    width: 72%;
+    margin: 1% auto 0 auto;
+}
+
+#information .info-list li {
+    display: inline-block;
+    padding: 1%;
+    background-color: rgba(var(--main-page-color), 0.4);
+    text-align: center;
+    cursor: pointer;
+}
+
+#information .info-list li:first-child {
+    margin-left: 0;
+    border-top-left-radius: 15px;
+}
+
+#information .info-list li:last-child {
+    border-top-right-radius: 15px;
+}
+
+#information .info-list li.active {
+    background-color: var(--alter-page-color);
+    color: var(--active-text-color);
+    padding: 1.5%;
+}
+
+#information .info-content {
+    width: 72%;
+    background-color: var(--alter-page-color);
+    padding: 2%;
+    margin: 0 auto 3% auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#information .info-content>div:not(:first-of-type) {
+    display: none
+}
+
+@media (max-width: 992px) {
+    #information .info-list li {
+        display: block;
+        text-align: left;
+        padding: 5%;
+    }
+    #information .info-list li.active {
+        padding: 5.5%;
+    }
+    #information .info-list li:first-child {
+        border-top-right-radius: 15px;
+    }
+    #information .info-list li:last-child {
+        border-top-right-radius: 0;
+    }
+    #information .info-content {
+        padding: 5%;
+    }
+}
+
+
+/* End Information Block */
+
+
+/***************************************************************************/
+
+
+/* Start Footer Block */
+
+footer {
+    grid-area: footer;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #ffffff;
+    text-align: center;
+}
+
+footer i {
+    color: red;
+}
+
+footer>div {
+    padding: 10px;
+    margin: 10px;
+}
+
+@media (max-width: 992px) {
+    footer {
+        flex-direction: column;
+    }
+    footer>div {
+        padding: 1%;
+        margin: 1%;
+    }
+}
+
+
+/* End Footer Block */
+
+
+/***************************************************************************/
+
+
+/* // Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    ...
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    ...
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    ...
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    ...
+} */
